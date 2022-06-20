@@ -1,0 +1,214 @@
+
+<body>
+
+
+
+    <div class="top-bar">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-4 col-md-12">
+                    <div class="logo">
+                        <a routerLink="" routerLinkActive="active">
+                            <h1>Car<span>Care</span></h1>
+                            <!-- <img src="img/logo.jpg" alt="Logo"> -->
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-7 d-none d-lg-block">
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="top-bar-item">
+                                <div class="top-bar-icon">
+                                    <i class="far fa-clock"></i>
+                                </div>
+                                <div class="top-bar-text">
+                                    <h3>Heure d'ouverture</h3>
+                                    <p>Mon - Fri, 8:00 - 9:00</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="top-bar-item">
+                                <div class="top-bar-icon">
+                                    <i class="fa fa-phone-alt"></i>
+                                </div>
+                                <div class="top-bar-text">
+                                    <h3>Appelez-nous
+</h3>
+                                    <p>+012 345 6789</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="top-bar-item">
+                                <div class="top-bar-icon">
+                                    <i class="far fa-envelope"></i>
+                                </div>
+                                <div class="top-bar-text">
+                                    <h3>Envoyez-nous un email</h3>
+                                    <p>info@example.com</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Top Bar End -->
+     <!-- Nav Bar Start -->
+     <div class="nav-bar">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+                <a href="#" class="navbar-brand">menu</a>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                    <div class="navbar-nav mr-auto">
+                        <a routerLink="" routerLinkActive="active" class="nav-item nav-link active">Home</a>
+                        <a routerLink="/about" routerLinkActive="active" class="nav-item nav-link">À propos de nous
+</a>
+                        <a href="#map" routerLinkActive="active"class="nav-item nav-link"> Points de visite</a>
+
+                        
+                        <a routerLink="/contact" routerLinkActive="active" class="nav-item nav-link">Nous contacter
+</a>
+
+
+<a  *ngIf="loggedIn" routerLink="/Reservations"   routerLinkActive="active" class="nav-item nav-link">Reservation</a>  
+    <a  *ngIf="!loggedIn" routerLink="/login" routerLinkActive="active" class="nav-item nav-link">Connexion</a>
+                        <a  *ngIf="loggedIn" routerLink="/logout"  (click)="logoutUser()" routerLinkActive="active" class="nav-item nav-link">Deconnexion</a>                    </div>
+                    <div class="ml-auto">
+                        <a class="btn btn-custom" routerLink="/location" routerLinkActive="active">Prendre rendez-vous</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+
+    <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
+        data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
+      
+  
+
+            <div class="page-breadcrumb bg-white">
+                <div class="row align-items-center">
+                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                        
+                    </div>
+                </div>
+            </div>
+    
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="white-box">
+                    <h3 class="box-title ">Reservation
+                    <button class="button1 float-end" (click)="addReservation()" style="color: #ffffff; ">Réserver</button>
+                    
+                   
+                </h3>
+                    <br>
+                    <br><div class="container-fluid">
+    
+                    
+                <div class="table-responsive">
+                    <table class="table text-nowrap">
+                        <thead>
+                            <tr>
+                                <th class="border-top-0">#</th>
+                                <th class="border-top-0">jour</th>
+                                <th class="border-top-0">Heur</th>
+                                <th class="border-top-0">Locale</th>
+                                <th class="border-top-0">client</th>
+                               
+                            </tr>
+                        </thead>
+                        <tbody >
+                            <tr *ngFor="let e of reservation" >
+                             <td>{{e.id}}</td>
+                              <td>{{e.dateReservation}}</td>
+                              <td>{{e.seance.timeStart}}-{{e.seance.timeEnd}}</td>  
+                              <td>{{e.locale.nom}}</td>
+                              <td>{{e.client.firstname}} {{e.client.lastname}}</td>  
+
+
+                              <td>
+                                <button type="button " class="button1 btn-sm" (click)="displayRes(e.id)"><i class="bi bi-display"></i> Display</button>ㅤ
+                                <button type="button" class="button2 btn-sm" (click)="editRes(e)"><i class="bi bi-pencil"></i>Editer</button>ㅤ
+                                <button type="button" class="button1  btn-sm" (click)="deleteRes(e.id)"><i class="bi bi-trash"></i>Delete</button>   
+                             
+                                        
+                              </tr>
+                          </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+    
+
+</div>
+</div>
+</div>
+
+
+
+
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6">
+                <div class="footer-contact">
+                    <h2>Entrer en contact</h2>
+                    <p><i class="fa fa-map-marker-alt"></i>123 Street, New York, USA</p>
+                    <p><i class="fa fa-phone-alt"></i>+012 345 67890</p>
+                    <p><i class="fa fa-envelope"></i>info@example.com</p>
+                    <div class="footer-social">
+                        <a class="btn" href=""><i class="fab fa-twitter"></i></a>
+                        <a class="btn" href=""><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn" href=""><i class="fab fa-youtube"></i></a>
+                        <a class="btn" href=""><i class="fab fa-instagram"></i></a>
+                        <a class="btn" href=""><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="footer-link">
+                    <h2>Liens populaires</h2>
+                    <a href="">À propos de nous</a>
+                    <a href="">nousContacter</a>
+                    <a href="">Notre service</a>
+                    <a href="">Points de service</a>
+                    <a href="">Plan de prix</a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="footer-link">
+                    <h2>Liens utiles</h2>
+                    <a href="">Conditions d'utilisation</a>
+                    <a href="">Politique de confidentialité</a>
+                    <a href="">Biscuits</a>
+                    <a href="">Aider</a>
+                    <a href="">Additionné</a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="footer-newsletter">
+                    <h2>Bulletin</h2>
+                    <form>
+                        <input class="form-control" placeholder="Full Name">
+                        <input class="form-control" placeholder="Email">
+                        <button class="btn btn-custom">Soumettre</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+</body>

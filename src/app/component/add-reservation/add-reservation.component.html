@@ -1,0 +1,80 @@
+
+<body>
+
+    <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
+        data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
+      
+  
+
+    
+    <div class="page-breadcrumb bg-white">
+        <div class="row align-items-center">
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                <h4 class="page-title">Reservation</h4>
+            </div>
+        
+        </div>
+        
+    </div>
+
+  
+  
+  
+  
+        <div class="row">
+   
+    
+     
+            <div class="col-lg-8 col-xlg-9 col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <form >
+                           
+                            <div class="form-group">
+                              <label for="name">Jour</label>
+                              <input type="date" class="form-control" placeholder="Date*" [(ngModel)]="reservation.dateReservation" [ngModelOptions]="{standalone:true}">
+                            </div>
+                            <div class="form-group">
+                                <label>Heurs</label>
+                        
+                                <select type="text"class="form-control  " id="id" name="id"placeholder="seance *"  [(ngModel)]="reservation.seance" [ngModelOptions]="{standalone:true}">        
+                                    <option *ngFor="let h of seance" [ngValue]="h" >   
+                                          {{h.timeStart}}-{{h.timeEnd}}
+                                    </option>
+                                </select>   
+                            </div>
+                              <div class="form-group">
+                                <label>Locale</label>
+                        
+                                <select type="text"class="form-control  " id="id" name="id"placeholder="Locale *"  [(ngModel)]="reservation.locale" [ngModelOptions]="{standalone:true}">        
+                                    <option *ngFor="let s of locale" [ngValue]="s" >   
+                                          {{s.nom}}
+                                    </option>
+                                </select>   
+                            </div>
+                            <div class="form-group">
+                                <label>Client</label>
+                        
+                                <select type="text"class="form-control  " id="id" name="id"placeholder="Ville *"  [(ngModel)]="reservation.client" [ngModelOptions]="{standalone:true}">        
+                                    <option *ngFor="let s of client" [ngValue]="s" >   
+                                          {{s.firstname}}
+                                    </option>
+                                </select>   
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" (click)="add(reservation)"class="button1 btn-sm" >ENREGIRTRER</button>
+                              
+                              </div>      
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+
+    </div>
+    </body>
+
+
+
